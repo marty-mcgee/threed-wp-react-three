@@ -2,7 +2,7 @@
 /*
 Plugin Name: ThreeD WP React Three
 Description: Embed a Three.js React-Three-Fiber canvas in a WordPress page using a shortcode
-Version: 0.0.11
+Version: 0.0.12
 Author: Marty McGee
 */
 
