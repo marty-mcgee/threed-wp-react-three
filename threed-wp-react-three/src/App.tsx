@@ -17,6 +17,8 @@ const ThreeScene: React.FC = () => {
 };
 
 function App() {
+  console.debug('DOM fully loaded, initializing React app...');
+  console.debug('Root element:', document.getElementById('r3f-root'));
   return (
     <div className="App">
       <header className="App-header">
