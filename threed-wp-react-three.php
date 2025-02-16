@@ -6,10 +6,10 @@ Version: 0.0.12
 Author: Marty McGee
 */
 
-function threed_wp_react_threeshortcode() {
+function threed_wp_react_three_shortcode() {
     return '<div id="threed-root"></div>';
 }
-add_shortcode('threed_wp_react_three', 'threed_wp_react_threeshortcode');
+add_shortcode('threed_wp_react_three', 'threed_wp_react_three_shortcode');
 
 function threed_wp_react_three_enqueue_scripts() {
     // Check if we're on a singular post or page
