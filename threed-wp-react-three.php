@@ -39,12 +39,12 @@ function threed_wp_react_three_enqueue_scripts() {
             );
 
             // Add defer attribute for better loading performance
-            add_filter('script_loader_tag', function($tag, $handle) {
-                if ('threed-wp-react-three-script' === $handle) {
-                    return str_replace(' src', ' defer src', $tag);
-                }
-                return $tag;
-            }, 10, 2);
+            // add_filter('script_loader_tag', function($tag, $handle) {
+            //     if ('threed-wp-react-three-script' === $handle) {
+            //         return str_replace(' src', ' defer src', $tag);
+            //     }
+            //     return $tag;
+            // }, 10, 2);
         }
     }   
 }
