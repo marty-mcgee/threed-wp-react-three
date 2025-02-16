@@ -21,7 +21,7 @@ function threed_wp_react_threeenqueue_scripts() {
             // Enqueue React app's JavaScript and CSS
             wp_enqueue_script(
                 'threed-wp-react-three-script',
-                plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/js/main.b5cf77f4.js',
+                plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/js/main.9a9e317c.js',
                 array(),
                 '1.0',
                 true // in footer
@@ -53,7 +53,7 @@ function threed_wp_react_threeinject_react_app() {
             const rootElement = document.getElementById('threed-root');
             if (rootElement) {
                 const script = document.createElement('script');
-                script.src = '<?php echo plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/js/main.b5cf77f4.js'; ?>';
+                script.src = '<?php echo plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/js/main.9a9e317c.js'; ?>';
                 document.body.appendChild(script);
             }
         });
