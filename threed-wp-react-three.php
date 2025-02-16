@@ -2,16 +2,16 @@
 /*
 Plugin Name: ThreeD WP React Three
 Description: Embed a Three.js React-Three-Fiber canvas in a WordPress page using a shortcode
-Version: 0.0.8
+Version: 0.0.9
 Author: Marty McGee
 */
 
-function r3f_shortcode() {
-    return '<div id="r3f-root"></div>';
+function threed_wp_react_threeshortcode() {
+    return '<div id="threed-root"></div>';
 }
-add_shortcode('threed_wp_react_three', 'r3f_shortcode');
+add_shortcode('threed_wp_react_three', 'threed_wp_react_threeshortcode');
 
-function r3f_enqueue_scripts() {
+function threed_wp_react_threeenqueue_scripts() {
     // Check if we're on a singular post or page
     if (is_singular()) {
         global $post;
@@ -20,14 +20,14 @@ function r3f_enqueue_scripts() {
         if (isset($post) && has_shortcode($post->post_content, 'threed_wp_react_three')) {
             // Enqueue React app's JavaScript and CSS
             wp_enqueue_script(
-                'r3f-react-app',
+                'threed-wp-react-three-script',
                 plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/js/main.b5cf77f4.js',
                 array(),
                 '1.0',
                 true // in footer
             );
             wp_enqueue_style(
-                'r3f-react-app-style',
+                'threed-wp-react-three-style',
                 plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/css/main.f855e6bc.css',
                 array(),
                 '1.0'
@@ -43,14 +43,14 @@ function r3f_enqueue_scripts() {
         }
     }   
 }
-add_action('wp_enqueue_scripts', 'r3f_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'threed_wp_react_threeenqueue_scripts');
 
 /*
-function r3f_inject_react_app() {
+function threed_wp_react_threeinject_react_app() {
     ?>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
-            const rootElement = document.getElementById('r3f-root');
+            const rootElement = document.getElementById('threed-root');
             if (rootElement) {
                 const script = document.createElement('script');
                 script.src = '<?php echo plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/js/main.b5cf77f4.js'; ?>';
@@ -60,5 +60,5 @@ function r3f_inject_react_app() {
     </script>
     <?php
 }
-add_action('wp_footer', 'r3f_inject_react_app');
+add_action('wp_footer', 'threed_wp_react_threeinject_react_app');
 */
