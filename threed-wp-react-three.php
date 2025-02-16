@@ -2,7 +2,7 @@
 /*
 Plugin Name: ThreeD WP React Three
 Description: Embed a Three.js React-Three-Fiber canvas in a WordPress page using a shortcode
-Version: 0.0.9
+Version: 0.0.10
 Author: Marty McGee
 */
 
@@ -11,7 +11,7 @@ function threed_wp_react_threeshortcode() {
 }
 add_shortcode('threed_wp_react_three', 'threed_wp_react_threeshortcode');
 
-function threed_wp_react_threeenqueue_scripts() {
+function threed_wp_react_three_enqueue_scripts() {
     // Check if we're on a singular post or page
     if (is_singular()) {
         global $post;
@@ -24,7 +24,12 @@ function threed_wp_react_threeenqueue_scripts() {
                 plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/js/main.9a9e317c.js',
                 array(),
                 '1.0',
-                true // in footer
+                [
+                    // strategy: 
+                    'defer',
+                    // in_footer:
+                    true 
+                ]
             );
             wp_enqueue_style(
                 'threed-wp-react-three-style',
@@ -35,7 +40,7 @@ function threed_wp_react_threeenqueue_scripts() {
 
             // Add defer attribute for better loading performance
             add_filter('script_loader_tag', function($tag, $handle) {
-                if ('threewp-bundle' === $handle) {
+                if ('threed-wp-react-three-script' === $handle) {
                     return str_replace(' src', ' defer src', $tag);
                 }
                 return $tag;
@@ -43,10 +48,10 @@ function threed_wp_react_threeenqueue_scripts() {
         }
     }   
 }
-add_action('wp_enqueue_scripts', 'threed_wp_react_threeenqueue_scripts');
+add_action('wp_enqueue_scripts', 'threed_wp_react_three_enqueue_scripts');
 
 /*
-function threed_wp_react_threeinject_react_app() {
+function threed_wp_react_three_inject() {
     ?>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
@@ -60,5 +65,5 @@ function threed_wp_react_threeinject_react_app() {
     </script>
     <?php
 }
-add_action('wp_footer', 'threed_wp_react_threeinject_react_app');
+add_action('wp_footer', 'threed_wp_react_three_inject');
 */
