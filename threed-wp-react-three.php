@@ -33,7 +33,7 @@ function threed_wp_react_three_enqueue_scripts() {
             // );
             wp_enqueue_style(
                 'threed-wp-react-three-style',
-                plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/css/main.f855e6bc.css',
+                plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/css/main.cd722348.css',
                 array(),
                 '1.0'
             );
