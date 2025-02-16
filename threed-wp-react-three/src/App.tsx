@@ -8,7 +8,7 @@ const ThreeScene: React.FC = () => {
   return (
     <Canvas>
       <ambientLight />
-      <pointLight position={[100, 100, 100]} />
+      <pointLight position={[10, 10, 10]} />
       <Box position={[0, 0, 0]}>
         <meshStandardMaterial color="orange" />
       </Box>
@@ -23,17 +23,17 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
+        {/* <p>
           Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
+        </p> */}
+        {/* <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://react.dev/"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> */}
       </header>
 
       <ThreeScene />
