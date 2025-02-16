@@ -22,5 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-../threed-wp-react-three-v0.0.1
-../*.zip
+/threed-wp-react-three-v*
+*.zip

@@ -2,7 +2,7 @@
 /*
 Plugin Name: ThreeD WP React Three
 Description: Embed a Three.js React-Three-Fiber canvas in a WordPress page using a shortcode
-Version: 0.0.0
+Version: 0.0.7
 Author: Marty McGee
 */
 
@@ -10,14 +10,14 @@ function r3f_enqueue_scripts() {
     // Enqueue React app's JavaScript and CSS
     wp_enqueue_script(
         'r3f-react-app',
-        plugin_dir_url(__FILE__) . 'threed-wp-react-app/build/static/js/main.d76af341.js',
+        plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/js/main.d76af341.js',
         array(),
         '1.0',
-        true
+        true // in footer
     );
     wp_enqueue_style(
         'r3f-react-app-style',
-        plugin_dir_url(__FILE__) . 'threed-wp-react-app/build/static/css/main.f855e6bc.css',
+        plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/css/main.f855e6bc.css',
         array(),
         '1.0'
     );
@@ -29,6 +29,7 @@ function r3f_shortcode() {
 }
 add_shortcode('threed_wp_react_three', 'r3f_shortcode');
 
+/*
 function r3f_inject_react_app() {
     ?>
     <script type="text/javascript">
@@ -36,7 +37,7 @@ function r3f_inject_react_app() {
             const rootElement = document.getElementById('r3f-root');
             if (rootElement) {
                 const script = document.createElement('script');
-                script.src = '<?php echo plugin_dir_url(__FILE__) . 'react-app/build/static/js/main.d76af341.js'; ?>';
+                script.src = '<?php echo plugin_dir_url(__FILE__) . 'threed-wp-react-three/build/static/js/main.d76af341.js'; ?>';
                 document.body.appendChild(script);
             }
         });
@@ -44,3 +45,4 @@ function r3f_inject_react_app() {
     <?php
 }
 add_action('wp_footer', 'r3f_inject_react_app');
+*/
