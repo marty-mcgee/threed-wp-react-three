@@ -8,18 +8,7 @@ import BoxThreeD from './components/BoxThreeD'
 import './App.css'
 
 const ThreeScene: React.FC = () => {
-
-  // This reference will give us direct access to the THREE.Mesh object
-  const mesh = useRef(null)
-
-  // Subscribe this component to the render-loop, rotate the mesh every frame
-  useFrame((state, delta) =>
-    mesh.current
-      // @ts-expect-error
-      ? (mesh.current.rotation.y = mesh.current.rotation.x += 0.01)
-      : null
-  )
-
+  // **
   return (
     <Canvas>
       <ambientLight />
